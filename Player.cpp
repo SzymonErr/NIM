@@ -9,6 +9,7 @@
 
 Player::Player(){
 	std::cout << "Player constructor!" << std::endl;
+	std::cout << "playerID: " << playerID << std::endl;
 	playerID++;
 }
 
@@ -32,7 +33,7 @@ int Player::AskForMove(){
 		std::cout << "Wrong input. Choose 1, 3 or 4" << std::endl;
 		std::cin >> move;
 	}
-	std::cout << "Your move: " << move << std::endl;
+	//std::cout << "Player " << playerID << " move: " << move << std::endl;
 	return move;
 }
 
