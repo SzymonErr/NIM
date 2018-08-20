@@ -9,13 +9,14 @@
 #include <cstdlib>
 #include "Player.h"
 #include "Board.h"
+#include "Gameplay.h"
 
 using namespace std;
 
 int main() {
-	Player player1;
+	Gameplay play;
+	play.PlayerMove();
 	cout << "Hello World!" << endl;
-	player1.AskForMove();
 	return 0;
 }
 
