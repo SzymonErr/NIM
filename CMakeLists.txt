@@ -10,14 +10,23 @@ include_directories(${GTEST_INCLUDE_DIR})
 add_library (board
 Board.cpp
 )
+add_library (player
+Player.cpp
+)
 
 # Add test cpp file
 add_executable (board_test
 	tests/Board_test.cpp
 )
+add_executable (player_test
+	tests/Player_test.cpp
+)
 
 # Link test executables against gtest & gtest_main
 target_link_libraries(board_test board gtest gtest_main)
+target_link_libraries(player_test player gtest gtest_main)
+
+target_link_libraries(NIM board player)
 
 add_test(
 	NAME board_test
