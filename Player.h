@@ -16,7 +16,7 @@ class Player {
 public:
 	Player();
 	virtual ~Player();
-	int AskForMove();
+	virtual int AskForMove(int act_height);
 	bool CheckIfValidMove(int move);
 
 };

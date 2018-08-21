@@ -23,11 +23,11 @@ bool Player::CheckIfValidMove(int move){
 	else return false;
 }
 
-int Player::AskForMove(){
+int Player::AskForMove(int act_height){
 	int move;
 	std::cout << "Choose one of possible moves (1, 3 or 4): ";
 	std::cin >> move;
-	while (std::cin.fail() || !CheckIfValidMove(move)){
+	while (std::cin.fail() || !CheckIfValidMove(move) || act_height < move){
 		std::cin.clear();
 		std::cin.ignore(1000, '\n');
 		std::cout << "Wrong input. Choose 1, 3 or 4" << std::endl;
