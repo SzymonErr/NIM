@@ -8,6 +8,7 @@
 #include "AI.h"
 
 AI::AI(){
+	srand(time(NULL));
 	std::cout << "AI constructor!" << std::endl;
 }
 
@@ -55,8 +56,8 @@ int AI::minimax(int act_height, int depth, bool is_my_turn){
 int AI::FindBestMove(int act_height){
 
 	int best_value = -1000;
-	int best_move = 0;
 	int possible_moves[3] = {1,3,4};
+	int best_move = possible_moves[(rand() % 3)];
 
 	for (int i = 0; i < 3; i++){
 		if (act_height >= possible_moves[i]){

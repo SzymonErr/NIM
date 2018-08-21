@@ -9,6 +9,7 @@
 #define AI_H_
 
 #include "Player.h"
+#include "time.h"
 
 class AI : public Player {
 public:
