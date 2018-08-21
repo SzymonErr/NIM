@@ -8,6 +8,10 @@
 #include "Gameplay.h"
 
 Gameplay::Gameplay() : players(), myTower(25), actual_player(0), game_over(0){
+	Player * b = new Player;
+	Player * c = new AI;
+	players.push_back(b);
+	players.push_back(c);
 	std::cout << "Gameplay constructor!" << std::endl;
 }
 
@@ -18,7 +22,7 @@ Gameplay::~Gameplay(){
 void Gameplay::PlayerMove(){
 	int move = 0;
 	while(!game_over){
-	move = players[actual_player].AskForMove();
+	move = players[actual_player]->AskForMove(myTower.AccessActualHeight());
 	std::cout << "Player " << actual_player+1 << " move: " << move << std::endl;
 	myTower.LowerActualHeight(move);
 	game_over = CheckIfGameOver(myTower.AccessActualHeight());
@@ -34,11 +38,11 @@ bool Gameplay::CheckIfGameOver(int act_height){
 		std::cout << "PLAYER " << (actual_player + 1) << " WINS! " << std::endl;
 		return true;
 	}
-	else if (act_height < 0){
+	/*else if (act_height < 0){
 		std::cout << "GAME OVER!" << std::endl;
 		std::cout << "PLAYER " << (actual_player + 1)%2 + 1 << " WINS! " << std::endl;
 		return true;
-	}
+	}*/
 	else return false;
 
 }

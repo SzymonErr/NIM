@@ -12,9 +12,13 @@
 #include <cstdlib>
 #include "Player.h"
 #include "Board.h"
+#include "AI.h"
+#include <vector>
 
 class Gameplay {
-	Player players[2];
+	std::vector<Player *> players;
+	//Player players[2];
+	//AI bot;
 	Board myTower;
 	int actual_player;
 	bool game_over;
