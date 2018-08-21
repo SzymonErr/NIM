@@ -16,6 +16,9 @@ Player.cpp
 add_library (gameplay
 Gameplay.cpp
 )
+add_library (ai
+AI.cpp
+)
 
 # Add test cpp file
 add_executable (board_test
@@ -27,13 +30,18 @@ add_executable (player_test
 add_executable (gameplay_test
 	tests/Gameplay_test.cpp
 )
+add_executable (ai_test
+	tests/AI_test.cpp
+)
 
 # Link test executables against gtest & gtest_main
 target_link_libraries(board_test board gtest gtest_main)
 target_link_libraries(player_test player gtest gtest_main)
+target_link_libraries(ai_test ai player gtest gtest_main)
 target_link_libraries(gameplay_test gameplay gtest gtest_main)
 
-target_link_libraries(gameplay board player)
+target_link_libraries(ai player)
+target_link_libraries(gameplay board player ai)
 target_link_libraries(NIM gameplay)
 
 add_test(
